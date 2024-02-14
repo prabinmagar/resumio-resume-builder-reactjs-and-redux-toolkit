@@ -1,0 +1,83 @@
+.pg-header {
+  min-height: 114px;
+  display: flex;
+  align-items: center;
+
+  .header-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 0;
+  }
+
+  .site-brand {
+    display: flex;
+    align-items: center;
+    column-gap: 6px;
+
+    img {
+      max-width: 40px;
+    }
+    span {
+      font-weight: bold;
+      font-size: 24px;
+      background: -webkit-linear-gradient(#2975ef, #5f96ef);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  }
+
+  .navbar {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+  }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+
+    .nav-item {
+      padding: 4px 12px;
+
+      a {
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: calc(100% + 4px);
+          left: 50%;
+          transform: translateX(-50%);
+          height: 2px;
+          background: var(--blue);
+          width: 0;
+          transition: all 300ms ease-in-out;
+        }
+
+        &:hover {
+          color: var(--blue);
+
+          &::after{
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .resume-btn {
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--blue);
+    background: var(--alice-blue);
+    padding: 12px 32px;
+    border-radius: 100vh;
+
+    &:hover {
+      background-color: var(--blue);
+      color: var(--white);
+    }
+  }
+}

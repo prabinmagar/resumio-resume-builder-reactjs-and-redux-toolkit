@@ -1,0 +1,21 @@
+.try{
+    padding: 80px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .try-ttl{
+        color: var(--white);
+        text-align: center;
+        font-size: 28px;
+        font-weight: 600;
+    }
+
+    .try-wrap{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 40px;
+    }
+}

@@ -1,0 +1,21 @@
+.banner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: calc(100vh - 114px);
+
+    .banner-ttl{
+        font-size: 48px;
+        font-weight: 600;
+    }
+
+    .banner-lead{
+        font-size: 32px;
+        font-weight: 400;
+    }
+
+    .btn{
+        margin-top: 32px;
+    }
+}
