@@ -3,19 +3,22 @@ import ResumeTop from "../../../components/screens/resume/ResumeTop/ResumeTop";
 import "./Education.scss";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import {
-  updateEducationInfo,
-} from "../../../redux/slices/resumeSlice";
-import { FaCheckCircle, FaExclamationCircle } from "react-icons/fa";
+import { updateEducationInfo } from "../../../redux/slices/resumeSlice";
 import { FaCaretDown } from "react-icons/fa6";
-import { useEffect, useState } from "react";
 import EducationInfoValidationSchema from "../../../forms/EducationInfoValidationSchema";
 import { selectEducationInfoById } from "../../../redux/selectors/resumeSelectors";
+import useYearRange from "../../../hooks/useYearRange";
+import FormField from "../../../components/common/FormField";
+import useResumeCompletionGuard from "../../../hooks/useResumeCompletionGuard";
 
 const EducationEdit = () => {
+  useResumeCompletionGuard();
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [years, setYears] = useState([]);
+  const startOffset = 20;
+  const endOffset = 10;
+  const years = useYearRange(startOffset, endOffset);
+
   const { id } = useParams();
   const education = useSelector((state) => selectEducationInfoById(state, id));
 
@@ -28,20 +31,7 @@ const EducationEdit = () => {
     graduationYear: education.graduationYear || "",
   };
 
-  useEffect(() => {
-    const currentDate = new Date();
-    const currentYear = currentDate.getFullYear();
-    const startYear = currentYear - 20;
-    const endYear = currentYear + 10;
-    const yearsArray = [];
-    for (let year = startYear; year <= endYear; year++) {
-      yearsArray.push(year);
-    }
-
-    setYears(yearsArray);
-  }, []);
-
-  const update = (values, { setSubmitting }) => {
+  const updateData = (values, { setSubmitting }) => {
     try {
       const educationInfoData = values;
       dispatch(updateEducationInfo({ id, data: educationInfoData }));
@@ -57,7 +47,7 @@ const EducationEdit = () => {
     <Formik
       initialValues={initialState}
       validationSchema={EducationInfoValidationSchema}
-      onSubmit={update}
+      onSubmit={updateData}
       validateOnMount
     >
       {({ errors, touched }) => (
@@ -76,130 +66,40 @@ const EducationEdit = () => {
                   <p className="form-hint">*indicates a required field</p>
                   <div className="form-elems-wrap">
                     <div className="form-elem-cols-2">
-                      <div className="form-elem">
-                        <label htmlFor="" className="form-lbl">
-                          School Name
-                        </label>
-                        <div className="form-ctrl-wrap">
-                          <Field
-                            type="text"
-                            className="form-ctrl"
-                            placeholder="e.g. University of Texas"
-                            name="schoolName"
-                          />
-                          {touched.schoolName && (
-                            <span className="form-symbol">
-                              {errors.schoolName ? (
-                                <span className="form-symbol-invalid">
-                                  <FaExclamationCircle />
-                                </span>
-                              ) : (
-                                <span className="form-symbol-valid">
-                                  <FaCheckCircle />
-                                </span>
-                              )}
-                            </span>
-                          )}
-                          {errors.schoolName && touched.schoolName && (
-                            <p className="error-text">{errors.schoolName}</p>
-                          )}
-                        </div>
-                      </div>
-                      <div className="form-elem">
-                        <label htmlFor="" className="form-lbl">
-                          School Location
-                        </label>
-                        <div className="form-ctrl-wrap">
-                          <Field
-                            type="text"
-                            className="form-ctrl"
-                            placeholder="e.g. Cebu City, Cebu, Philippines"
-                            name="schoolLocation"
-                          />
-                          {touched.schoolLocation && (
-                            <span className="form-symbol">
-                              {errors.schoolLocation ? (
-                                <span className="form-symbol-invalid">
-                                  <FaExclamationCircle />
-                                </span>
-                              ) : (
-                                <span className="form-symbol-valid">
-                                  <FaCheckCircle />
-                                </span>
-                              )}
-                            </span>
-                          )}
-                          {errors.schoolLocation && touched.schoolLocation && (
-                            <p className="error-text">
-                              {errors.schoolLocation}
-                            </p>
-                          )}
-                        </div>
-                      </div>
+                      <FormField
+                        label="School Name"
+                        placeholder="e.g. University of Texas"
+                        name="schoolName"
+                        errors={errors}
+                        touched={touched}
+                      />
+                      <FormField
+                        label="School Location"
+                        placeholder="e.g. Cebu City, Cebu, Philippines"
+                        name="schoolLocation"
+                        errors={errors}
+                        touched={touched}
+                      />
                     </div>
 
                     <div className="form-elem-cols-2">
-                      <div className="form-elem">
-                        <label htmlFor="" className="form-lbl">
-                          Degree
-                        </label>
-                        <div className="form-ctrl-wrap">
-                          <Field
-                            type="text"
-                            className="form-ctrl"
-                            placeholder="e.g. Bachelor of Arts"
-                            name="degree"
-                          />
-                          {touched.degree && (
-                            <span className="form-symbol">
-                              {errors.degree ? (
-                                <span className="form-symbol-invalid">
-                                  <FaExclamationCircle />
-                                </span>
-                              ) : (
-                                <span className="form-symbol-valid">
-                                  <FaCheckCircle />
-                                </span>
-                              )}
-                            </span>
-                          )}
-                          {errors.degree && touched.degree && (
-                            <p className="error-text">{errors.degree}</p>
-                          )}
-                        </div>
-                      </div>
+                      <FormField
+                        label="Degree"
+                        placeholder="e.g. Bachelor of Arts"
+                        name="degree"
+                        errors={errors}
+                        touched={touched}
+                      />
                     </div>
 
                     <div className="form-elem-cols-2">
-                      <div className="form-elem">
-                        <label htmlFor="" className="form-lbl">
-                          Field of Study
-                        </label>
-                        <div className="form-ctrl-wrap">
-                          <Field
-                            type="text"
-                            className="form-ctrl"
-                            placeholder="e.g. Arts & Humanities"
-                            name="fieldOfStudy"
-                          />
-                          {touched.fieldOfStudy && (
-                            <span className="form-symbol">
-                              {errors.fieldOfStudy ? (
-                                <span className="form-symbol-invalid">
-                                  <FaExclamationCircle />
-                                </span>
-                              ) : (
-                                <span className="form-symbol-valid">
-                                  <FaCheckCircle />
-                                </span>
-                              )}
-                            </span>
-                          )}
-                          {errors.fieldOfStudy && touched.fieldOfStudy && (
-                            <p className="error-text">{errors.fieldOfStudy}</p>
-                          )}
-                        </div>
-                      </div>
+                      <FormField
+                        label="Field of Study"
+                        placeholder="e.g. Arts & Humanities"
+                        name="fieldOfStudy"
+                        errors={errors}
+                        touched={touched}
+                      />
                       <div className="form-elem">
                         <label htmlFor="" className="form-lbl">
                           Graduation Date (Or Expected Graduation Date)
@@ -212,18 +112,17 @@ const EducationEdit = () => {
                               className="form-ctrl"
                             >
                               <option value="">Select Month</option>
-                              <option value="January">January</option>
-                              <option value="February">February</option>
-                              <option value="March">March</option>
-                              <option value="April">April</option>
-                              <option value="May">May</option>
-                              <option value="June">June</option>
-                              <option value="July">July</option>
-                              <option value="August">August</option>
-                              <option value="September">September</option>
-                              <option value="October">October</option>
-                              <option value="November">November</option>
-                              <option value="December">December</option>
+                              {Array.from({ length: 12 }, (_, index) => {
+                                const monthName = new Date(
+                                  0,
+                                  index
+                                ).toLocaleString("en", { month: "long" });
+                                return (
+                                  <option key={index} value={monthName}>
+                                    {monthName}
+                                  </option>
+                                );
+                              })}
                             </Field>
                             <span className="select-icon">
                               <FaCaretDown />

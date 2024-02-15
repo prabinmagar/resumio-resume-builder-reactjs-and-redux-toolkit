@@ -7,8 +7,10 @@ import { FaPlus } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { removeEducationInfo } from "../../../redux/slices/resumeSlice";
 import routeConstants from "../../../constants/routeConstants";
+import useResumeCompletionGuard from "../../../hooks/useResumeCompletionGuard";
 
 const EducationList = () => {
+  useResumeCompletionGuard();
   const educationInfoData = useSelector(selectEducationInfo);
   const dispatch = useDispatch();
 
@@ -20,55 +22,57 @@ const EducationList = () => {
     <div className="resume-board-block resume-block-education">
       <ResumeTop goBackRoute={"/resume/education/tips"} />
       <div className="resume-block-content">
-        <h3 className="education-list-ttl">Education Summary</h3>
-        <div className="education-list">
-          {educationInfoData?.map((educationItem, index) => {
-            return (
-              <div key={educationItem.id} className="education-item">
-                <div className="education-item-idx">{index + 1}</div>
-                <div className="education-item-info">
-                  <div className="education-item-ttl">
-                    <p>{educationItem.degree}</p>
-                    <p>{educationItem.schoolName}</p>
-                    <span className="education-item-separator"></span>
-                    <p>{educationItem.fieldOfStudy}</p>
+        <div className="resume-summary">
+          <h3 className="summary-list-ttl">Education Summary</h3>
+          <div className="summary-list">
+            {educationInfoData?.map((educationItem, index) => {
+              return (
+                <div key={educationItem.id} className="summary-item">
+                  <div className="summary-item-idx">{index + 1}</div>
+                  <div className="summary-item-info">
+                    <div className="summary-item-ttl">
+                      <p>{educationItem.degree}</p>
+                      <p>{educationItem.schoolName}</p>
+                      <span className="summary-item-separator"></span>
+                      <p>{educationItem.fieldOfStudy}</p>
+                    </div>
+                    <div className="summary-item-detail">
+                      <p>{educationItem.schoolLocation}</p>
+                      <span className="summary-item-separator"></span>
+                      <p>Expected in {educationItem.graduationMonth}</p>
+                      <p>{educationItem.graduationYear}</p>
+                    </div>
                   </div>
-                  <div className="education-item-detail">
-                    <p>{educationItem.schoolLocation}</p>
-                    <span className="education-item-separator"></span>
-                    <p>Expected in {educationItem.graduationMonth}</p>
-                    <p>{educationItem.graduationYear}</p>
+                  <div className="summary-item-actions">
+                    <Link
+                      to={`${routeConstants.RESUME_EDUCATION_EDIT}/${educationItem.id}`}
+                      className="action-btn"
+                    >
+                      <FaPencilAlt />
+                    </Link>
+                    <button
+                      type="button"
+                      className="action-btn"
+                      onClick={() => handleDelete(educationItem.id)}
+                    >
+                      <FaTrash />
+                    </button>
                   </div>
                 </div>
-                <div className="education-item-actions">
-                  <Link
-                    to={`${routeConstants.RESUME_EDUCATION_EDIT}/${educationItem.id}`}
-                    className="action-btn"
-                  >
-                    <FaPencilAlt />
-                  </Link>
-                  <button
-                    type="button"
-                    className="action-btn"
-                    onClick={() => handleDelete(educationItem.id)}
-                  >
-                    <FaTrash />
-                  </button>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-        <div className="education-add">
-          <Link
-            to={routeConstants.RESUME_EDUCATION_ADD}
-            className="education-add-btn"
-          >
-            <span className="btn-icon">
-              <FaPlus />
-            </span>
-            <span className="btn-text">Add another education</span>
-          </Link>
+              );
+            })}
+          </div>
+          <div className="summary-add">
+            <Link
+              to={routeConstants.RESUME_EDUCATION_ADD}
+              className="summary-add-btn"
+            >
+              <span className="btn-icon">
+                <FaPlus />
+              </span>
+              <span className="btn-text">Add another education</span>
+            </Link>
+          </div>
         </div>
       </div>
       <div className="resume-block-bottom">

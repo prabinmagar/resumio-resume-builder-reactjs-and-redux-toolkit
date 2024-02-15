@@ -1,0 +1,29 @@
+.resume-block-skill {
+  .form-rating {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    margin-right: 40px;
+
+    .rating-stars {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+  }
+
+  .form-elem {
+    display: flex;
+    align-items: center;
+    column-gap: 20px;
+    max-width: 720px;
+
+    .form-ctrl-wrap{
+        width: 100%;
+    }
+  }
+
+  .summary-add-btn{
+    max-width: 720px;
+  }
+}

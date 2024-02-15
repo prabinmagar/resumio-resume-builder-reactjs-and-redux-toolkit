@@ -17,7 +17,7 @@ const Banner = () => {
           <h3 className="banner-lead">
             Professional Resume Tool To Get Ready For Job
           </h3>
-          <Link to="/resume" className="btn btn-red">
+          <Link to="/how_it_works" className="btn btn-red">
             <span className="btn-icon">
               <CgNotes size={24} />
             </span>

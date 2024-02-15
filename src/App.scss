@@ -162,6 +162,10 @@ input {
   &-oxford-blue {
     background-color: var(--oxford-blue);
 
+    .btn-icon{
+      color: var(--oxford-blue);
+    }
+
     .btn-text {
       color: var(--oxford-blue);
       text-transform: capitalize;

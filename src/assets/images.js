@@ -5,6 +5,7 @@ import ResumeTemplate from "./images/resume_template.jpg";
 import CascadeTemplateImg from "./images/cascade_template.png";
 import TryTriangle from './images/try_triangle.jpg';
 import SampleImage from "./images/sample_image.jpg";
+import Write from "./images/write.svg";
 
 export const Images = {
   HowItWorks,
@@ -13,5 +14,6 @@ export const Images = {
   ResumeTemplate,
   CascadeTemplateImg,
   TryTriangle,
-  SampleImage
+  SampleImage,
+  Write
 };

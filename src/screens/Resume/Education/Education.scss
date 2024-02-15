@@ -1,3 +1,4 @@
+// tips
 .tips-row {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -23,16 +24,17 @@
   }
 }
 
-.education-list-ttl {
+// summary
+.summary-list-ttl {
   font-size: 32px;
   margin-bottom: 20px;
 }
 
-.education-list {
+.summary-list {
   display: grid;
   gap: 16px;
 
-  .education-item {
+  .summary-item {
     border: 1px solid #838fa0;
     border-radius: 10px;
     padding: 24px 20px;
@@ -41,7 +43,7 @@
     gap: 16px;
   }
 
-  .education-item-idx {
+  .summary-item-idx {
     background: #cce2f7;
     border-radius: 5px;
     width: 36px;
@@ -54,7 +56,7 @@
     font-weight: 700;
   }
 
-  .education-item-ttl {
+  .summary-item-ttl {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -63,20 +65,20 @@
     font-weight: 700;
     margin-bottom: 8px;
   }
-  .education-item-separator {
+  .summary-item-separator {
     width: 1px;
     height: 20px;
     background-color: var(--oxford-blue);
   }
 
-  .education-item-detail {
+  .summary-item-detail {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     gap: 10px;
   }
 
-  .education-item-actions {
+  .summary-item-actions {
     display: flex;
     gap: 12px;
     align-items: flex-start;
@@ -99,10 +101,10 @@
   }
 }
 
-.education-add {
+.summary-add {
   margin-top: 20px;
 
-  .education-add-btn {
+  .summary-add-btn {
     width: 100%;
     border: 2px dashed #0c1968;
     border-radius: 10px;

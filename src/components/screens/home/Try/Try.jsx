@@ -15,7 +15,7 @@ const Try = () => {
           <h3 className="try-ttl">
             Try Resumio professional resume builder now
           </h3>
-          <Link to="/resume" className="btn btn-white">
+          <Link to="/how_it_works" className="btn btn-white">
             <span className="btn-text">try our resume maker</span>
           </Link>
         </div>

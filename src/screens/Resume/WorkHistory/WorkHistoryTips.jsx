@@ -2,8 +2,13 @@ import { Link } from "react-router-dom";
 import ResumeTop from "../../../components/screens/resume/ResumeTop/ResumeTop";
 import routeConstants from "../../../constants/routeConstants";
 import "./WorkHistory.scss";
+import { useSelector } from "react-redux";
+import { selectWorkHistoryInfo } from "../../../redux/selectors/resumeSelectors";
+import useResumeCompletionGuard from "../../../hooks/useResumeCompletionGuard";
 
 const WorkHistoryTips = () => {
+  useResumeCompletionGuard();
+  const workHistoryInfoData = useSelector(selectWorkHistoryInfo);
   return (
     <div className="resume-board-block resume-block-workhistory">
       <ResumeTop goBackRoute={routeConstants.RESUME_EDUCATION_LIST} />
@@ -30,12 +35,21 @@ const WorkHistoryTips = () => {
         >
           <span className="btn-text">Preview</span>
         </button>
-        <Link
-          to={routeConstants.RESUME_WORKHISTORY_ADD}
-          className="resume-next-btn btn btn-orange border-effect"
-        >
-          <span className="btn-text">Next</span>
-        </Link>
+        {workHistoryInfoData?.length > 0 ? (
+          <Link
+            to={routeConstants.RESUME_WORKHISTORY_LIST}
+            className="resume-next-btn btn btn-orange border-effect"
+          >
+            <span className="btn-text">Next</span>
+          </Link>
+        ) : (
+          <Link
+            to={routeConstants.RESUME_WORKHISTORY_ADD}
+            className="resume-next-btn btn btn-orange border-effect"
+          >
+            <span className="btn-text">Next</span>
+          </Link>
+        )}
       </div>
     </div>
   );

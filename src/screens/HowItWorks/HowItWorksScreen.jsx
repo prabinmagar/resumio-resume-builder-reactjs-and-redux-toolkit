@@ -33,7 +33,7 @@ const HowItWorksScreen = () => {
             </div>
             <div className="hiw-right">
               <img src={Images.HowItWorks} alt="" />
-              <Link to="/resume" className="btn btn-orange">
+              <Link to="/select" className="btn btn-orange">
                 <span className="btn-text">Create My Resume</span>
               </Link>
             </div>

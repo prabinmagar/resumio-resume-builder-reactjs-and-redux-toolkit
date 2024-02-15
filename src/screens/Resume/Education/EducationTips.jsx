@@ -3,14 +3,16 @@ import ResumeTop from "../../../components/screens/resume/ResumeTop/ResumeTop";
 import "./Education.scss";
 import { useSelector } from "react-redux";
 import { selectEducationInfo } from "../../../redux/selectors/resumeSelectors";
+import routeConstants from "../../../constants/routeConstants";
+import useResumeCompletionGuard from "../../../hooks/useResumeCompletionGuard";
 
 const EducationTips = () => {
+  useResumeCompletionGuard();
   const educationInfoData = useSelector(selectEducationInfo);
-  console.log(educationInfoData);
 
   return (
     <div className="resume-board-block resume-block-education">
-      <ResumeTop goBackRoute={"/resume/contact"} />
+      <ResumeTop goBackRoute={routeConstants.RESUME_CONTACT} />
       <div className="resume-block-content">
         <div className="tips-row">
           <div className="resume-tips-info">
@@ -33,14 +35,14 @@ const EducationTips = () => {
         </button>
         {educationInfoData?.length > 0 ? (
           <Link
-            to="/resume/education/list"
+            to={routeConstants.RESUME_EDUCATION_LIST}
             className="resume-next-btn btn btn-orange border-effect"
           >
             <span className="btn-text">Next</span>
           </Link>
         ) : (
           <Link
-            to="/resume/education"
+            to={routeConstants.RESUME_EDUCATION_ADD}
             className="resume-next-btn btn btn-orange border-effect"
           >
             <span className="btn-text">Next</span>
