@@ -1,7 +1,12 @@
 .pg-header {
-  min-height: 114px;
+  min-height: 80px;
   display: flex;
   align-items: center;
+
+  @media(max-width: 576px){
+    min-height: auto;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
 
   .header-wrap {
     display: flex;
@@ -17,6 +22,10 @@
 
     img {
       max-width: 40px;
+
+      @media(max-width: 992px){
+        max-width: 36px;
+      }
     }
     span {
       font-weight: bold;
@@ -24,6 +33,10 @@
       background: -webkit-linear-gradient(#2975ef, #5f96ef);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+
+      @media(max-width: 992px){
+        font-size: 20px;
+      }
     }
   }
 
@@ -40,6 +53,10 @@
 
     .nav-item {
       padding: 4px 12px;
+
+      @media(max-width: 1200px){
+        padding: 3px 8px;
+      }
 
       a {
         position: relative;
@@ -65,6 +82,10 @@
         }
       }
     }
+
+    @media(max-width: 992px){
+      display: none;
+    }
   }
 
   .resume-btn {
@@ -74,6 +95,10 @@
     background: var(--alice-blue);
     padding: 12px 32px;
     border-radius: 100vh;
+
+    @media(max-width: 992px){
+      padding: 8px 24px;
+    }
 
     &:hover {
       background-color: var(--blue);

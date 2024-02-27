@@ -78,7 +78,7 @@ const WorkHistoryList = () => {
           </div>
           <div className="summary-add">
             <Link
-              to={routeConstants.RESUME_SKILL_TIPS}
+              to={routeConstants.RESUME_WORKHISTORY_ADD}
               className="summary-add-btn"
             >
               <span className="btn-icon">

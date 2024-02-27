@@ -6,6 +6,7 @@ import CascadeTemplateImg from "./images/cascade_template.png";
 import TryTriangle from './images/try_triangle.jpg';
 import SampleImage from "./images/sample_image.jpg";
 import Write from "./images/write.svg";
+import Avatar from "./images/avatar.svg";
 
 export const Images = {
   HowItWorks,
@@ -15,5 +16,5 @@ export const Images = {
   CascadeTemplateImg,
   TryTriangle,
   SampleImage,
-  Write
+  Write, Avatar
 };

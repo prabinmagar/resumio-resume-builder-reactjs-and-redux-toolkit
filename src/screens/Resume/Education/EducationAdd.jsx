@@ -10,6 +10,7 @@ import EducationInfoValidationSchema from "../../../forms/EducationInfoValidatio
 import FormField from "../../../components/common/FormField";
 import useYearRange from "../../../hooks/useYearRange";
 import useResumeCompletionGuard from "../../../hooks/useResumeCompletionGuard";
+import routeConstants from "../../../constants/routeConstants";
 
 const EducationAdd = () => {
   useResumeCompletionGuard();
@@ -51,7 +52,7 @@ const EducationAdd = () => {
       {({ errors, touched }) => (
         <Form>
           <div className="resume-board-block resume-block-education">
-            <ResumeTop goBackRoute={"/resume/education/tips"} />
+            <ResumeTop goBackRoute={routeConstants.RESUME_EDUCATION_TIPS} />
             <div className="resume-block-content">
               <h2 className="resume-block-ttl">Tell us about your education</h2>
               <p className="resume-block-lead">

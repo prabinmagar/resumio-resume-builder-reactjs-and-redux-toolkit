@@ -6,7 +6,7 @@ import "./Skill.scss";
 const SkillTips = () => {
   return (
     <div className="resume-board-block resume-block-skill">
-      <ResumeTop goBackRoute={routeConstants.RESUME_SKILL_TIPS} />
+      <ResumeTop goBackRoute={routeConstants.RESUME_WORKHISTORY_LIST} />
       <div className="resume-block-content">
         <div className="tips-row">
           <div className="resume-tips-info">

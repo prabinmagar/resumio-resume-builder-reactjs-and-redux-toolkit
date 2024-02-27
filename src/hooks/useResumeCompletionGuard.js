@@ -15,6 +15,8 @@ const useResumeCompletionGuard = () => {
       "/resume/education",
       "/resume/workhistory",
       "/resume/skill",
+      "/resume/summary",
+      "/resume/extra"
     ];
 
     const currentIndex = routeOrder.findIndex((route) =>

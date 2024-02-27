@@ -1,7 +1,6 @@
-.resume-block-skill {
+.resume-block-extra {
   .form-elems-wrap {
     position: relative;
-    max-width: 720px;
   }
 
   .form-rating {
@@ -27,13 +26,26 @@
     }
   }
 
-  .summary-add-btn {
-    max-width: 720px;
-  }
-
   .error-message {
     position: absolute;
     top: calc(100% + 12px);
-    left: 196px;
+    left: 0;
+  }
+
+  .form-block-group{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 60px;
+    row-gap: 24px;
+    margin-top: 32px;
+
+    .resume-row{
+        padding: 16px 0;
+    }
+  }
+
+  .form-block-lbl{
+    font-size: 24px;
+    font-weight: 700;
   }
 }

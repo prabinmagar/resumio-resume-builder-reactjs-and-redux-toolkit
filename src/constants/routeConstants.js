@@ -15,6 +15,10 @@ const routeConstants = {
   RESUME_WORKHISTORY_EDIT: "/resume/workhistory/edit",
   RESUME_SKILL_TIPS: "/resume/skill/tips",
   RESUME_SKILL_ADD: "/resume/skill/add",
+  RESUME_SUMMARY_TIPS: "/resume/summary/tips",
+  RESUME_SUMMARY_ADD: "/resume/summary/add",
+  RESUME_EXTRA_ADD: "/resume/extra/add",
+  RESUME_PREVIEW: "/resume/preview",
   PAGE_NOT_FOUND: "/*",
 };
 

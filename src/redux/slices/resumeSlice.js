@@ -24,6 +24,13 @@ const initialState = storedResumeData
       educationInfo: [],
       workhistoryInfo: [],
       skillInfo: [],
+      summaryInfo: "",
+      extraInfo: {
+        languages: [],
+        hobbies: [],
+        portfolios: [],
+        certifications: [],
+      },
     };
 
 export const resumeSlice = createSlice({
@@ -98,7 +105,16 @@ export const resumeSlice = createSlice({
 
     addOrUpdateSkillInfo: (state, action) => {
       state.skillInfo = action.payload;
-      console.log(action.payload);
+      saveToLocalStorage(state);
+    },
+
+    addOrUpdateSummaryInfo: (state, action) => {
+      state.summaryInfo = action.payload;
+      saveToLocalStorage(state);
+    },
+
+    addOrUpdateExtraInfo: (state, action) => {
+      state.extraInfo = action.payload;
       saveToLocalStorage(state);
     },
   },
@@ -116,5 +132,7 @@ export const {
   removeWorkHistoryInfo,
   updateWorkHistoryInfo,
   addOrUpdateSkillInfo,
+  addOrUpdateSummaryInfo,
+  addOrUpdateExtraInfo
 } = resumeSlice.actions;
 export default resumeSlice.reducer;

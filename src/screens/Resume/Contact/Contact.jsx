@@ -61,13 +61,13 @@ const Contact = () => {
       {({ errors, touched }) => (
         <Form>
           <div className="resume-board-block resume-block-contact">
-            <ResumeTop goBackRoute = {routeConstants.SELECT} />
+            <ResumeTop goBackRoute={routeConstants.SELECT} />
             <div className="resume-block-content">
               <h2 className="resume-block-ttl">
                 What&apos;s the best way for employers to contact you?
               </h2>
               <p className="resume-block-lead">
-                We suggset including an email and phone number.
+                We suggest including an email and phone number.
               </p>
               <div className="resume-row">
                 <div className="resume-img">

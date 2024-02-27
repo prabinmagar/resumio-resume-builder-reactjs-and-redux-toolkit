@@ -28,7 +28,7 @@ const SelectScreen = () => {
         <div className="container">
           <div className="sel-resume-wrap">
             <h3 className="sel-resume-ttl">
-              How to you want to build your resume?
+              How do you want to build your resume?
             </h3>
 
             <div className="sel-resume-opts">

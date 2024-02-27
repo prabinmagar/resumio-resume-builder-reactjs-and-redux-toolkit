@@ -18,6 +18,10 @@ import WorkHistoryEdit from "../screens/Resume/WorkHistory/WorkHistoryEdit";
 import SkillTips from "../screens/Resume/Skill/SkillTips";
 import SkillAdd from "../screens/Resume/Skill/SkillAdd";
 import SelectScreen from "../screens/Select/SelectScreen";
+import SummaryTips from "../screens/Resume/Summary/SummaryTips";
+import SummaryAdd from "../screens/Resume/Summary/SummaryAdd";
+import ExtraSectionsAdd from "../screens/Resume/ExtraSections/ExtraSectionsAdd";
+import Preview from "../screens/Resume/Preview/Preview";
 
 const AppRoutes = () => {
   return (
@@ -25,7 +29,7 @@ const AppRoutes = () => {
       <Route path={routeConstants.ROOT} element={<LayoutContainer />}>
         <Route path={routeConstants.HOME} element={<Home />} />
         <Route path={routeConstants.HOW_IT_WORKS} element={<HowItWorks />} />
-        <Route path = {routeConstants.SELECT} element = {<SelectScreen />} />
+        <Route path={routeConstants.SELECT} element={<SelectScreen />} />
       </Route>
 
       <Route path={routeConstants.RESUME} element={<ResumeContainer />}>
@@ -67,6 +71,19 @@ const AppRoutes = () => {
           element={<SkillTips />}
         />
         <Route path={routeConstants.RESUME_SKILL_ADD} element={<SkillAdd />} />
+        <Route
+          path={routeConstants.RESUME_SUMMARY_TIPS}
+          element={<SummaryTips />}
+        />
+        <Route
+          path={routeConstants.RESUME_SUMMARY_ADD}
+          element={<SummaryAdd />}
+        />
+        <Route
+          path={routeConstants.RESUME_EXTRA_ADD}
+          element={<ExtraSectionsAdd />}
+        />
+        <Route path={routeConstants.RESUME_PREVIEW} element={<Preview />} />
       </Route>
       <Route path={routeConstants.PAGE_NOT_FOUND} element={<PageNotFound />} />
     </Routes>
